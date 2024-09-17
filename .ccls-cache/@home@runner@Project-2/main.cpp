@@ -1,23 +1,30 @@
 #include <iostream>
-
+#include <iomanip>
+#include <cmath>
+#include <string>
+using namespace std;
 int main() 
 {
-  float sugar = 1.5;
-  float butter = 1;
-  float flour = 2.75;
-  int cookies = 48;
-  int amount;
+  float principal;
+  float interestRate;
+  float interestCompounded;
 
-  std::cout << "How many cookies would you like to make?\n";
-  std::cin >> amount;
+  cout << "Interest rate: " << setw(7) <<""; 
+  cin >> interestRate;
+  interestRate = interestRate / 100;
 
-  float sugarNeeded = (amount / cookies) * sugar;
-  float butterNeeded = (amount / cookies) * butter;
-  float flourNeeded = (amount / cookies) * flour;
+  cout << "Times Compounded: " << setw(7) <<"";
+  cin >> interestCompounded;
+  
+  cout << "Principal: " << setw(13) << "$ "; 
+  cin >> principal;
+  
+  float amount2 = pow((1 + (interestRate / interestCompounded)), interestCompounded);
+  float amount1 = principal * amount2;
 
-  std::cout << "You need: " << std::endl;
-  std::cout << "Sugar: " << sugarNeeded << std::endl;
-  std::cout << "Butter: " << butterNeeded << std::endl;
-  std::cout << "Flour: " << flourNeeded << std::endl;
+  cout  << "Interest: " << setw(14) <<setprecision(2) << fixed << "$ "<<amount1 - principal << endl;
+  
+  cout  << "Amount in Savings: " << setw(5) << "$ " << amount1 << endl;
   return 0;
 }
+//By Hunter Wright

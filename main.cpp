@@ -1,35 +1,36 @@
+// These allow me to use the functions and manipulators from the libraries
 #include <iostream>
-// This allows me to use the setprecision and fixed manipulators
 #include <iomanip>
-// This allows me to use the cout and cin functions
+#include <cmath>
+#include <string>
 using namespace std;
-// This is creates the main function to allow my program to run
+// This is the main function
 int main() 
 {
-  // This is where all my variables are initialized
-  float sugar = 1.5;
-  float butter = 1;
-  float flour = 2.75;
-  float cookies = 48;
-  float amount;
-  // This is the title of my program
-  cout << "The Cookie Calculator\n";
-  cout << "\n";
-  // This is the prompt for the user
-  cout << "How many cookies would you like to make?\n";
-  // This is where the user inputs the amount of cookies they want
-  cin >> amount;
-  cout << "\n";
-  // This is the calculation for the amount of ingredients needed for the cookies
-  float sugarNeeded = (amount / cookies) * sugar;
-  float butterNeeded = (amount / cookies) * butter;
-  float flourNeeded = (amount / cookies) * flour;
-  // This is the output of the amount of ingredients needed for the cookies
-  cout << "The ingredients you will need: " << endl;
-  cout << setprecision(2) << fixed << "Sugar: " << sugarNeeded << " cups" << endl;
-  cout << "Butter: " << butterNeeded << " cups" << endl;
-  cout << "Flour: " << flourNeeded << " cups" << endl;
+// This is where I initialize my variables
+  float principal;
+  float interestRate;
+  float interestCompounded;
+// This is a title to make everything look nice
+  cout << "Savings Account Interest Calculator" << endl;
+  cout << "-----------------------------------\n";
+// This is where I ask the user for the principal, interest rate, and the number of times the interest is comp
+  cout << left << setw(20) << "Interest rate: " << setw(7) << right << ""; 
+  cin >> interestRate;
+  interestRate = interestRate / 100;
+
+  cout << left << setw(20) << "Times Compounded: " << setw(9) << right << "";
+  cin >> interestCompounded;
+  
+  cout << left << setw(20) << "Principal: " << setw(4) << right << "$ "; 
+  cin >> principal;
+  // This is where I calculate the interest
+  float amount2 = pow((1 + (interestRate / interestCompounded)), interestCompounded);
+  float amount1 = principal * amount2;
+  // This is where I output the interest
+  cout  << left << setw(20)<< "Interest: " << setw(6) << setprecision(2) << fixed << right << "$   "<<amount1 - principal << endl;
+  // This is where I output the total amount
+  cout << left << setw(20) << "Amount in Savings: " << setw(4) << right << "$ " << amount1 << endl;
   return 0;
 }
-
 //By Hunter Wright
